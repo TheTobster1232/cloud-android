@@ -6,16 +6,15 @@ RUN apt update && apt install -y \
     qemu-system-x86 \
     novnc \
     websockify \
-    xz-utils \
+    wget \
     supervisor \
     && apt clean
 
-WORKDIR /android
+WORKDIR /vm
 
-# Use the local Android image you upload to the repo
-COPY android.img.xz /android/android.img.xz
-
-RUN xz -d android.img.xz
+# Download Ubuntu cloud image (always works)
+RUN wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img \
+    -O ubuntu.img
 
 COPY start.sh /start.sh
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
