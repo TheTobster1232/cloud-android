@@ -12,6 +12,4 @@ qemu-system-x86_64 \
   -display vnc=:1 \
   -hda /android/android.img \
   -net nic \
-  -net user \
-  -enable-kvm \
-  -cpu host
+  -net user
