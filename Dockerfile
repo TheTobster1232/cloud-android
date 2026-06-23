@@ -9,14 +9,13 @@ RUN apt update && apt install -y \
     wget \
     unzip \
     xz-utils \
-    xfce4 \
-    xfce4-goodies \
     supervisor \
     && apt clean
 
 WORKDIR /android
 
-RUN wget -O android.img.xz https://archive.org/download/android-x86_64-9.0-r2/android-x86_64-9.0-r2.img.xz \
+# Download Android-x86 from a stable, direct, non-redirecting mirror
+RUN wget -O android.img.xz https://dl.android-x86.org/releases/9.0-r2/android-x86_64-9.0-r2.img.xz \
     && xz -d android.img.xz \
     && mv android-x86_64-9.0-r2.img android.img
 
