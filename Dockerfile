@@ -16,7 +16,7 @@ RUN apt update && apt install -y \
 
 WORKDIR /android
 
-RUN wget -O android.img.xz https://mirrors.osdn.net/storage/g/android-x86/Release/9.0-r2/android-x86_64-9.0-r2.img.xz \
+RUN wget -O android.img.xz https://archive.org/download/android-x86_64-9.0-r2/android-x86_64-9.0-r2.img.xz \
     && xz -d android.img.xz \
     && mv android-x86_64-9.0-r2.img android.img
 
