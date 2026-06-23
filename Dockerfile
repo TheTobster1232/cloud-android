@@ -12,7 +12,7 @@ RUN apt update && apt install -y \
 
 WORKDIR /vm
 
-# Download Ubuntu cloud image (always works)
+# Download Ubuntu cloud image (this always works)
 RUN wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img \
     -O ubuntu.img
 
