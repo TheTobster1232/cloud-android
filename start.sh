@@ -8,6 +8,8 @@ qemu-system-x86_64 \
   -machine accel=tcg \
   -vga virtio \
   -display vnc=:1 \
-  -hda /vm/ubuntu.img \
+  -hda /android/android.img \
+  -cdrom /android/android.iso \
+  -boot d \
   -net nic \
   -net user
