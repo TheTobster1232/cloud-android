@@ -6,18 +6,16 @@ RUN apt update && apt install -y \
     qemu-system-x86 \
     novnc \
     websockify \
-    wget \
-    unzip \
     xz-utils \
     supervisor \
     && apt clean
 
 WORKDIR /android
 
-# Download Android-x86 with certificate checks disabled (Railway requires this)
-RUN wget --no-check-certificate -O android.img.xz https://dl.android-x86.org/releases/9.0-r2/android-x86_64-9.0-r2.img.xz \
-    && xz -d android.img.xz \
-    && mv android-x86_64-9.0-r2.img android.img
+# Use the local Android image you upload to the repo
+COPY android.img.xz /android/android.img.xz
+
+RUN xz -d android.img.xz
 
 COPY start.sh /start.sh
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
