@@ -24,3 +24,6 @@ RUN chmod +x /start.sh
 EXPOSE 8080
 
 CMD ["/usr/bin/supervisord"]
+
+RUN qemu-img create -f raw /android/android.img 4G
+
