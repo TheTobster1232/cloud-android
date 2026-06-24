@@ -3,9 +3,7 @@
 # Start noVNC
 websockify --web=/usr/share/novnc/ 8080 localhost:5901 &
 
-# Run QEMU with hybrid display:
-# - VNC for graphics
-# - Text console in terminal
+# Run QEMU with hybrid mode
 qemu-system-x86_64 \
   -m 2048 \
   -smp 2 \
